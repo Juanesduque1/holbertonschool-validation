@@ -1,0 +1,24 @@
+name: module3_task2
+on:
+  push:
+  schedule:
+    - cron: "0 0 * * *"
+jobs:
+  module3_task2:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: cd module3_task2 && ./setup.sh
+      - run: cd module3_task2 && make build
+      - run: cd module3_task2 && make unit-tests
+      - run: cd module3_task2 && make integration-tests
+      - run: cd module3_task2 && make validate
+      - run: cd module3_task2 && make help
+      - run: cd module3_task2 && make lint
+      - run: cd module3_task2 && make package
+      - uses: actions/upload-artifact@v3
+        with:
+          name: awesome-website
+          path: ./module3_task2/awesome-website.zip
