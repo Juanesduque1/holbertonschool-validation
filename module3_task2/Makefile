@@ -42,7 +42,7 @@ validate: ## should validate the file ./dist/index.html by using the command lin
 	@-./w3c_validator.py ./dist/index.html
 
 package: ## Creates a zip file that contains lis needed files to deply the website
-	@make build
+	@hugo
 	@zip awesome-website.zip awesome-api ./dist/
 
 help: ## Shows this help message
