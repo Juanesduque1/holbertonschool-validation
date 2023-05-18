@@ -26,9 +26,3 @@ integration-tests: ## integrate file
 
 
 validate: ## valide file
-
-
-integration-tests: ## integrate file
-
-
-validate: ## valide file
